@@ -1,0 +1,7 @@
+src/.DS_Store
+*.pyc
+cache
+src/BackuPy/.DS_Store
+src/db.sqlite3
+.DS_Store
+venv/

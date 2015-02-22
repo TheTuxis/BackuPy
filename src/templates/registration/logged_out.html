@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+    <meta http-equiv="Refresh" content="5;url=/login/">
+{% endblock %}
+
+{% block content %}
+        <br>
+        <div class="alert alert-info">
+        <a href="/accounts/login/" class="close" data-dismiss="alert">×</a>
+        <strong>Logout: </strong> La sesión finalizó correctamente.
+        </div>
+
+{% endblock %}

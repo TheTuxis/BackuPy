@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+  <br>
+  <br><br>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Ingresar</strong></h3>
+        </div>
+        <div class="panel-body">
+          <form method="post" action=".">
+          {% csrf_token %}
+            <div class="form-group">
+              <input id="id_username" type="text" class="form-control" name="username" maxlength="30" placeholder="Ingrese el usuario">
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" id="id_password" class="form-control" placeholder="Ingrese la clave">
+            </div>
+            <br>
+            <button class="btn btn-primary" type="submit">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+  {% if form.errors %}
+    <div class="alert alert-danger">
+      <strong>Error en Login:</strong>
+      El usuario o la clave ingresada no es correcto. Por favor vuelva a intentarlo.
+    </div>
+  {% endif %} 
+  </div>
+</div>
+<img src="/static/img/logo.png"  style="position: absolute; bottom: 5px; right: 4px;">
+{% endblock %}
+{% block extra_js %}
+<script type="text/javascript"> 
+  var totalCount = 9;
+  $(document).ready(function(){
+    var num = Math.ceil( Math.random() * totalCount );
+    var style_str = 'background: url('
+    style_str += '/static/img/login.jpg'
+    style_str += ') no-repeat center center fixed;'
+    style_str += '-webkit-background-size: cover;'
+    style_str += '-o-background-size: cover;'
+    style_str += 'background-size: cover;'
+    $('body').attr('style', style_str);
+  });
+</script>
+{% endblock %}
