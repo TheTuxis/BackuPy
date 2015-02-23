@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 
 urlpatterns = patterns('',
@@ -25,3 +26,5 @@ urlpatterns = patterns('',
         'apps.backup.views.download_backup'
     ),
 )
+
+urlpatterns += staticfiles_urlpatterns()
