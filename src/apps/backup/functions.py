@@ -33,7 +33,7 @@ class backup_process:
                     count_backup += 1
             str_command = 'tar -czvf '
             str_command += destine + '/backup.' + str(count_backup) + '.tgz '
-            str_command += '-g ' + destine + 'backup.snap '
+            str_command += '-g ' + destine + '/backup.snap '
             str_command += '--exclude="' + destine + '/lost+found" '
             str_command += '--exclude=".*" '
             str_command += origin
