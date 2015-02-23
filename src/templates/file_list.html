@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="row" style="margin-top: 40px">
+        <div class="col-md-2"><br>
+          <div class="bs-docs-sidebar hidden-print affix-top">
+          <div class="panel panel-primary">
+          <div class="panel-heading">Menu <span class="fa fa-list-alt pull-right"></span></div>
+            <ul class="nav bs-docs-sidenav">
+              <li>
+                <a href="/list_backup/">Backup</a>
+              </li>
+              <li>
+                <a href="/logout/">Salir</a>
+              </li>
+            </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="row">
+            <div class="col-md-1">
+            <h3><a href="/list_backup/"><i class="fa fa-arrow-left"></i></a></h3>
+            
+            </div>
+            <div class="col-md-10">
+              <h3>Backup: {{backup.name}}</h3><br>
+            </div>
+          <hr>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Tamaño</th>
+                <th>Descarga</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for file in file_list%}
+                <tr>
+                  <td>{{file.name}}</td>
+                  <td>{{file.date_create}}</td>
+                  <td>{{file.size}}</td>
+                  <td><a href="/download/{{backup.id}}/{{file.name}}/" target="blank"><i class="fa fa-download"></i></a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="row" style="margin-top: 30px">
+        <div class="col-md-2"><br>
+          <div class="bs-docs-sidebar hidden-print affix-top">
+          <div class="panel panel-primary">
+          <div class="panel-heading">Menu <span class="fa fa-list-alt pull-right"></span></div>
+            <ul class="nav bs-docs-sidenav">
+              <li>
+                <a href="/list_backup/">Backup</a>
+              </li>
+              <li>
+                <a href="/logout/">Salir</a>
+              </li>
+              
+            </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+        </div>
+      </div>
+      <img src="/static/img/logo.png"  style="position: absolute; bottom: 25px; right: 24px;">
+{% endblock %}

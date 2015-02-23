@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="row" style="margin-top: 40px">
+        <div class="col-md-2"><br>
+          <div class="bs-docs-sidebar hidden-print affix-top">
+          <div class="panel panel-primary">
+          <div class="panel-heading">Menu <span class="fa fa-list-alt pull-right"></span></div>
+            <ul class="nav bs-docs-sidenav">
+              <li>
+                <a href="/list_backup/">Backup</a>
+              </li>
+              <li>
+                <a href="/logout/">Salir</a>
+              </li>
+            </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <h3>Backups</h3><br>
+          <hr>
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th class="text-center">Activo</th>
+                <th class="text-center">Nombre</th>
+                <th class="text-center">Tipo</th>
+                <th class="text-center">Estado ultima ejecucion</th>
+                <th class="text-center">Fecha ultima ejecucion</th>
+                <th class="text-center">Detalle</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in backup%}
+                <tr>
+                  <td>{% if item.active %}<i class="fa fa-check-circle" style="color:green"></i>{% else %}<i class="fa fa-times-circle"style="color:red"></i>{% endif %}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.get_backup_type_display}}</td>
+                  <td>{% if item.last_excecute_ok %}<i class="fa fa-check-circle" style="color:green"></i>{% else %}<i class="fa fa-times-circle"style="color:red"></i>{% endif %}</td>
+                  <td>{{item.last_excecute_date}}</td>
+                  <td><a href="/detail_backup/{{item.id}}/"><i class="fa fa-angle-double-right"></i></a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+{% endblock %}
