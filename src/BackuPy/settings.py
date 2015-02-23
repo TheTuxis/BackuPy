@@ -111,6 +111,6 @@ STATICFILES_FINDERS = (
 )
 
 try:
-    import local_settings
+    from local_settings import *
 except:
     pass
